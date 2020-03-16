@@ -1,0 +1,35 @@
+<div class="left ml-2">
+<div class="col-md-12 mt-4" style="min-width: 100% !important;">
+    <div class="row" style="min-width: 200px!important;border-radius: 0px;min-width: 100% !important;">
+        <div class="card text-white" title="bet-slip" style="border-color: transparent; background-color: #2b2b2b;min-width: 100% !important; height: 195px; border-radius: 0 !important;" >
+            <div class="card-header" style="background-color: #643e94;border-radius: 0px;min-width: 100% !important; height: 45px !important;padding: 10px 15px;">
+            Bet Slip (0)
+            </div>
+            <div class="card-body"style="min-width: 100% !important;overflow-y: auto;">
+                <!-- <p class="card-text" style="font-size: 13px; margin-top: -10px; "><strong>To place a bet:</strong> Choose the sport, tournament and event that you would like to bet on. Then select a market by clicking the odds that you would like to bet on</p> -->
+                <div *ngFor="let bet of item">
+                    <p style="font-size: 13px;">{{bet.id}} {{bet.event.LeagueName}}</p>
+                    <button (click)="removeFromBetSlip(bet)">x</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-dark text-white mt-2" style="min-width: 100% !important;">
+          <img class="card-img" src="https://hollywoodmedia.hollywoodbets.net/images/cms/new-website/images/go-back-to-old-website.gif" alt=""style="min-width: 100% !important;border-radius: 0 !important;">
+          <div class="card-img-overlay">
+          </div>
+        </div>
+
+        <div class="mt-1" >
+            <button type="button" class="btn btn-primary betButton mt-1">Upload FICA</button>
+            <button type="button" class="btn btn-primary betButton mt-1">Sports Blog</button>
+            <button type="button" class="btn btn-primary betButton mt-1">Social Responsibility</button>
+            <button type="button" class="btn btn-primary betButton mt-1">Soccer Betting News</button>
+            <button type="button" class="btn btn-primary betButton mt-1">Winning Form</button>
+            <button type="button" class="btn btn-primary betButton mt-1">Become an Affiliate</button>
+            <button type="button" class="btn btn-primary betButton mt-1">Careers</button>
+        </div>
+       
+    </div>
+</div>
+</div>
