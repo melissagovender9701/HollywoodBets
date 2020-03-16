@@ -3,13 +3,29 @@
     <div class="row" style="min-width: 200px!important;border-radius: 0px;min-width: 100% !important;">
         <div class="card text-white" title="bet-slip" style="border-color: transparent; background-color: #2b2b2b;min-width: 100% !important; height: 195px; border-radius: 0 !important;" >
             <div class="card-header" style="background-color: #643e94;border-radius: 0px;min-width: 100% !important; height: 45px !important;padding: 10px 15px;">
-            Bet Slip (0)
+            Bet Slip ({{count}})
+            <button (click)="clearBetslip()" class="ml-5" style="background-color: transparent; color: #d9534f; border: none; font-size: 17px;"><span style="color: #fff; font-size: 15px; margin-left: 4px; margin-right: 3px;">Clear</span><i class="fa fa-times"></i></button>
             </div>
-            <div class="card-body"style="min-width: 100% !important;overflow-y: auto;">
+            <div class="card-body"style="min-width: 100% !important;overflow-y: auto; max-height: 180px !important;">
                 <!-- <p class="card-text" style="font-size: 13px; margin-top: -10px; "><strong>To place a bet:</strong> Choose the sport, tournament and event that you would like to bet on. Then select a market by clicking the odds that you would like to bet on</p> -->
+                <p style="font-size: small;">{{message}}</p>
                 <div *ngFor="let bet of item">
-                    <p style="font-size: 13px;">{{bet.id}} {{bet.event.LeagueName}}</p>
-                    <button (click)="removeFromBetSlip(bet)">x</button>
+                    <div class="media">
+                        <div class="media-body" style="margin-top: -25px; margin-bottom: 20px;">
+                            <p>{{bet.id}}. {{bet.punterBetSelection}} <button (click)="removeFromBetSlip(bet)" class="ml-2" style="background-color: transparent; color: #d9534f; border: none; font-size: 17px;"><i class="fa fa-times"></i></button></p>
+                            <p style="font-size: small;">
+                                {{bet.typeOfEvent}} {{bet.selctionOdds}}
+                                <br>
+                                {{bet.event.LeagueName}} {{bet.selctionOdds}}
+                                <br>
+                                {{bet.event.Time}}
+                                <br>
+                                {{bet.event.HomeTeam}} vs {{bet.event.AwayTeam}}
+                            </p>
+                            
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

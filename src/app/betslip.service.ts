@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { LeftSideNavComponent } from './left-side-nav/left-side-nav.component';
 import { Bet } from './bet';
 
 @Injectable({
@@ -26,14 +25,25 @@ export class BetslipService {
     };
     this.item.push(this._value);
     this._idCounter++;
+    this.updateBetId();
     console.log(this.item);
   }
 
+  updateBetId(){
+    for(let index=0; index < this.item.length; index++){
+      const element = this.item[index];
+      element.id = index + 1;
+    }
+  }
   clearBetSlip(){
     this.finalTotal = 0;
     this.item.splice(0,this.item.length);
   }
   removeEvent(event:any){
-    this.item.splice(this.item.lastIndexOf(event),1);
+    const index = this.item.indexOf(event);
+    if(index!==-1){
+      this.item.splice(index,1);
+    }
+    this.updateBetId();
   }
 }
